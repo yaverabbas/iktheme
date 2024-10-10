@@ -1,0 +1,110 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6; /* Improve readability */
+    background-color: #f4f4f4; /* Light background color */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.site-header {
+    background-color: #333; /* Dark background for the header */
+    color: #fff; /* White text color */
+    padding: 20px 0; /* Padding for top and bottom */
+    text-align: center; /* Center the text */
+}
+
+.site-header h1 {
+    font-size: 2.5rem; /* Increase font size */
+    margin: 0; /* Remove default margin */
+}
+
+.site-header p {
+    font-size: 1.2rem; /* Slightly smaller font for the description */
+}
+
+/* Navigation Menu Styles */
+.primary-menu {
+    margin-top: 10px; /* Space between the header and menu */
+}
+
+.primary-menu ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+}
+
+.primary-menu li {
+    display: inline-block; /* Horizontal list */
+    margin-right: 20px; /* Space between menu items */
+}
+
+.primary-menu a {
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 15px; /* Padding for better click area */
+    transition: background 0.3s; /* Smooth transition for hover */
+}
+
+.primary-menu a:hover {
+    background-color: #575757; /* Change background on hover */
+}
+
+/* Main Content Styles */
+#content {
+    padding: 20px; /* Padding for the content area */
+    background-color: #fff; /* White background for content */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    margin-top: 20px; /* Space above content */
+}
+
+.project-item {
+    border: 1px solid #ddd; /* Border around project items */
+    padding: 20px; /* Padding inside project items */
+    transition: box-shadow 0.3s ease-in-out; /* Smooth shadow effect */
+    background-color: #fff; /* White background for items */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.project-item:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+}
+
+/* Single Project Styles */
+.single-project {
+    padding: 20px;
+    border: 1px solid #ddd; /* Border around single project */
+    background-color: #fff; /* White background */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Footer Styles */
+.site-footer {
+    text-align: center; /* Center the text */
+    padding: 20px; /* Padding for footer */
+    background-color: #333; /* Dark background for footer */
+    color: #fff; /* White text color */
+    position: relative; /* For footer position */
+    bottom: 0; /* Stick to the bottom */
+    width: 100%; /* Full width */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .projects-list {
+        grid-template-columns: repeat(1, 1fr); /* Stack items on smaller screens */
+    }
+
+    .primary-menu li {
+        display: block; /* Stack menu items vertically */
+        margin-right: 0; /* Remove right margin */
+        margin-bottom: 10px; /* Space below each item */
+    }
+}

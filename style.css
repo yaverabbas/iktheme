@@ -1,0 +1,13 @@
+/*
+Theme Name: Ikonic Task
+Theme URI: http://localhost/ikonic-task
+Author: Your Name
+Author URI: http://localhost
+Description: A custom theme for the Ikonic task.
+Version: 1.0
+Text Domain: ikonic-task
+*/
+
+body {
+    font-family: Arial, sans-serif;
+}
