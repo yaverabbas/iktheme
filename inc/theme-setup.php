@@ -18,3 +18,14 @@ function ikonic_task_theme_setup(): void
     load_theme_textdomain( 'ikonic-task', get_template_directory() . '/languages' );
 }
 add_action( 'after_setup_theme', 'ikonic_task_theme_setup' );
+
+// In case you want to add the 'menu-item-has-children' class manually:
+function add_dropdown_class_to_menu( $items ) {
+    foreach ( $items as $item ) {
+        if ( in_array( 'menu-item-has-children', $item->classes ) ) {
+            $item->classes[] = 'has-dropdown';
+        }
+    }
+    return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'add_dropdown_class_to_menu' );

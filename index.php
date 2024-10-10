@@ -1,38 +1,45 @@
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php wp_title( '|', true, 'right' ); ?></title>
-    <?php wp_head(); ?>
-</head>
-<body <?php body_class(); ?>>
+<?php get_header(); ?>
 
-<header class="site-header">
-    <h1><?php bloginfo( 'name' ); ?></h1>
-    <p><?php bloginfo( 'description' ); ?></p>
-    <nav class="primary-menu">
-        <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-    </nav>
-</header>
+<div class="container">
+    <h1><?php _e('Blog', 'ikonic-task'); ?></h1>
 
-<div class="container" id="content">
-    <?php
-    if ( have_posts() ) :
-        while ( have_posts() ) : the_post();
-            the_title( '<h2>', '</h2>' );
-            the_content();
-        endwhile;
-    else :
-        echo '<p>No posts found.</p>';
-    endif;
-    ?>
+    <?php if ( have_posts() ) : ?>
+        <div class="posts-grid">
+            <?php while ( have_posts() ) : the_post(); ?>
+                <div class="post-card">
+                    <?php if ( has_post_thumbnail() ) : ?>
+                        <div class="post-card-thumbnail">
+                            <a href="<?php the_permalink(); ?>">
+                                <?php the_post_thumbnail('medium'); ?>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+
+                    <div class="post-card-content">
+                        <h2 class="post-card-title">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </h2>
+                        <div class="post-card-excerpt">
+                            <?php the_excerpt(); ?>
+                        </div>
+                        <a href="<?php the_permalink(); ?>" class="post-card-read-more"><?php _e('Read More', 'ikonic-task'); ?></a>
+                    </div>
+                </div>
+            <?php endwhile; ?>
+        </div>
+
+        <div class="pagination">
+            <?php
+            the_posts_pagination( array(
+                'mid_size'  => 2,
+                'prev_text' => __( 'Previous', 'ikonic-task' ),
+                'next_text' => __( 'Next', 'ikonic-task' ),
+            ) );
+            ?>
+        </div>
+    <?php else : ?>
+        <p><?php _e('No posts found.', 'ikonic-task'); ?></p>
+    <?php endif; ?>
 </div>
 
-<footer class="site-footer">
-    <p>&copy; <?php echo date('Y'); ?> <?php bloginfo( 'name' ); ?></p>
-</footer>
-
-<?php wp_footer(); ?>
-</body>
-</html>
+<?php get_footer(); ?>
